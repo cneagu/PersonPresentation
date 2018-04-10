@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonPresentation_DL.Repository.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace PersonPresentation.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            BaseRepository base1 = new BaseRepository();
+            base1.nimioc();
             Application.Run(new Form1());
         }
     }
