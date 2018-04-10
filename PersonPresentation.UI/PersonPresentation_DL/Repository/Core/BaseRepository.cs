@@ -7,16 +7,32 @@ using System.Threading.Tasks;
 
 namespace PersonPresentation_DL.Repository.Core
 {
-    public class BaseRepository
+    public static class BaseRepository
     {
 
-        public void nimioc()
+        public static void ReadAll()
         {
             DBConnection dbCon = DBConnection.Instance();
 
             if (dbCon.IsConnect())
             {
-                //suppose col0 and col1 are defined as VARCHAR in the DB
+                string query = "SELECT * FROM  SYSDATE()";
+                var cmd = new MySqlCommand(query, dbCon.Connection);
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string someStringFromColumnZero = reader.GetString(0);
+                }
+                dbCon.Close();
+            }
+        }
+
+        public static void ReadByID()
+        {
+            DBConnection dbCon = DBConnection.Instance();
+
+            if (dbCon.IsConnect())
+            {
                 string query = "SELECT SYSDATE()";
                 var cmd = new MySqlCommand(query, dbCon.Connection);
                 var reader = cmd.ExecuteReader();
