@@ -7,43 +7,80 @@ using System.Threading.Tasks;
 
 namespace PersonPresentation_DL.Repository.Core
 {
-    public static class BaseRepository
+    public abstract class BaseRepository<T>
     {
+        #region Members
+        protected static string _conectionString = GetConnectionString();
+        #endregion
 
-        public static void ReadAll()
+        #region Methods
+        private static string GetConnectionString()
         {
-            DBConnection dbCon = DBConnection.Instance();
+            string connstring = string.Format("Server=localhost; database=personpresentation_db; UID=root; password=root");
 
-            if (dbCon.IsConnect())
+            return connstring;
+        }
+
+        public List<T> Read(string query)
+        {
+            List<T> result = new List<T>();
+            using (MySqlConnection connection = new MySqlConnection(_conectionString))
             {
-                string query = "SELECT * FROM  SYSDATE()";
-                var cmd = new MySqlCommand(query, dbCon.Connection);
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
+                try
                 {
-                    string someStringFromColumnZero = reader.GetString(0);
+                    var cmd = new MySqlCommand(query, connection);
+                    connection.Open();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            result.Add(GetModelFromReader(reader));
+                        }
+                    }
                 }
-                dbCon.Close();
+                catch (MySqlException sqlEx)
+                {
+                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("There was an error: {0}", ex.Message);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
+            }
+            return result;
+        }
+
+        public void ExecuteNonQuery(string query)
+        {
+            using (MySqlConnection connection = new MySqlConnection(_conectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (MySqlException sqlEx)
+                {
+                    Console.WriteLine("There was a SQL error: {0}", sqlEx.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("There was an error: {0}", ex.Message);
+                }
+                finally
+                {
+                    connection.Dispose();
+                }
             }
         }
 
-        public static void ReadByID()
-        {
-            DBConnection dbCon = DBConnection.Instance();
-
-            if (dbCon.IsConnect())
-            {
-                string query = "SELECT SYSDATE()";
-                var cmd = new MySqlCommand(query, dbCon.Connection);
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string someStringFromColumnZero = reader.GetString(0);
-                    string someStringFromColumnOne = reader.GetString(1);
-                    Console.WriteLine(someStringFromColumnZero + "," + someStringFromColumnOne);
-                }
-                dbCon.Close();
-            }
-        }
+        protected abstract T GetModelFromReader(MySqlDataReader reader);
+        #endregion
     }
 }

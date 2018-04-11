@@ -5,7 +5,7 @@ CREATE TABLE Persons(
 CNP nvarchar(13) NOT NULL,
 FirstName nvarchar(30) NOT NULL,
 LastName nvarchar(120) NOT NULL,
-Birth date NOT NULL,
+Birth datetime NOT NULL,
 Age int,
 Sex bool,
 CONSTRAINT PK_Persons PRIMARY KEY (CNP)

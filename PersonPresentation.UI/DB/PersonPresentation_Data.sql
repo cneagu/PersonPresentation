@@ -14,3 +14,6 @@ VALUES ('6000801200600', 'Moldovan', 'Alexandra', '2000-08-01', 17, 1);
 
 INSERT INTO Persons (CNP, FirstName, LastName, Birth, Age, Sex)
 VALUES ('6000801201805', 'Moldovan', 'Cristina', '2000-08-01', 17, 1);
+
+
+select * from persons;
