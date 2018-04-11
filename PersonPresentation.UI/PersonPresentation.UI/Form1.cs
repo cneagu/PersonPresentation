@@ -58,8 +58,10 @@ namespace PersonPresentation.UI
             //dataGridView2.AutoGenerateColumns = true;
             PersonPresentationDataSet ds = new PersonPresentationDataSet();
             ds.Persons.Populate();
+            personsDataTableBindingSource.DataSource = ds.Persons;
+            //dataGridView2.DataSource = ds.Persons;
+            //dataGridView2.AutoGenerateColumns = true;
 
-            dataGridView2.AutoGenerateColumns = true;
         }
     }
 }

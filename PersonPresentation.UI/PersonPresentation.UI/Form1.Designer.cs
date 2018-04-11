@@ -36,7 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.personsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cNPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +46,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -84,8 +84,7 @@
             this.birthDataGridViewTextBoxColumn,
             this.ageDataGridViewTextBoxColumn,
             this.sexDataGridViewCheckBoxColumn});
-            this.dataGridView2.DataMember = "Persons";
-            this.dataGridView2.DataSource = this.personBindingSource;
+            this.dataGridView2.DataSource = this.personsDataTableBindingSource;
             this.dataGridView2.Location = new System.Drawing.Point(6, 6);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(751, 345);
@@ -132,10 +131,10 @@
             this.tabPage2.Text = "Details";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // personBindingSource
+            // personsDataTableBindingSource
             // 
-            this.personBindingSource.DataSource = typeof(PersonPresentation_BL.PersonPresentationDataSet);
-            this.personBindingSource.Position = 0;
+            this.personsDataTableBindingSource.DataMember = "Persons";
+            this.personsDataTableBindingSource.DataSource = typeof(PersonPresentation_BL.PersonPresentationDataSet);
             // 
             // cNPDataGridViewTextBoxColumn
             // 
@@ -185,7 +184,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -199,7 +198,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.BindingSource personBindingSource;
+        private System.Windows.Forms.BindingSource personsDataTableBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;

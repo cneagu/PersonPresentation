@@ -65,6 +65,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\PersonPresentation_BL.PersonPresentationDataSet+PersonsDataTable.datasource" />
+    <None Include="Properties\DataSources\PersonPresentation_BL.PersonPresentationDataSet+PersonsRow.datasource" />
+    <None Include="Properties\DataSources\PersonPresentation_BL.PersonPresentationDataSet+PersonsRowChangeEvent.datasource" />
+    <None Include="Properties\DataSources\PersonPresentation_BL.PersonPresentationDataSet+PersonsRowChangeEventHandler.datasource" />
     <None Include="Properties\DataSources\PersonPresentation_BL.PersonPresentationDataSet.datasource" />
     <None Include="Properties\DataSources\PersonPresentation_DL.Model.Address.datasource" />
     <None Include="Properties\DataSources\PersonPresentation_DL.Model.Person.datasource" />
