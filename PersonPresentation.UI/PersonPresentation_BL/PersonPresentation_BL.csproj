@@ -40,7 +40,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PersonPresentationDataSet.cs">
+      <DependentUpon>PersonPresentationDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PersonPresentationDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PersonPresentationDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PersonPresentationDataSet.xsc">
+      <DependentUpon>PersonPresentationDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PersonPresentationDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PersonPresentationDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PersonPresentationDataSet.xss">
+      <DependentUpon>PersonPresentationDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PersonPresentation_DL\PersonPresentation_DL.csproj">
+      <Project>{5230033A-A00F-4C1D-A5AF-37B2836BE9D0}</Project>
+      <Name>PersonPresentation_DL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

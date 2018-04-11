@@ -33,9 +33,9 @@ namespace PersonPresentation.UI
 
             //persons.UpdateById(person);
 
-            persons.Delete("6080203448784");
+            //persons.Delete("6080203448784");
 
-            persons.ReadAll();
+            //persons.ReadAll();
             Application.Run(new Form1());
         }
     }

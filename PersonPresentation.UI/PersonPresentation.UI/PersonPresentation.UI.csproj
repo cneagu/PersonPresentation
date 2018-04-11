@@ -65,6 +65,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\PersonPresentation_BL.PersonPresentationDataSet.datasource" />
+    <None Include="Properties\DataSources\PersonPresentation_DL.Model.Address.datasource" />
+    <None Include="Properties\DataSources\PersonPresentation_DL.Model.Person.datasource" />
+    <None Include="Properties\DataSources\PersonPresentation_DL.Repository.AddressRepository.datasource" />
+    <None Include="Properties\DataSources\PersonPresentation_DL.Repository.PersonRepository.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -79,6 +84,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PersonPresentation_BL\PersonPresentation_BL.csproj">
+      <Project>{1cd27b91-9a88-48e6-ba5a-6d367a7dd838}</Project>
+      <Name>PersonPresentation_BL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PersonPresentation_DL\PersonPresentation_DL.csproj">
       <Project>{5230033A-A00F-4C1D-A5AF-37B2836BE9D0}</Project>
       <Name>PersonPresentation_DL</Name>
