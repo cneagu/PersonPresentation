@@ -27,6 +27,7 @@ namespace PersonPresentation.UI
 
         private void Edit(object sender, EventArgs e)
         {
+            textBox1.Enabled = false;
             tabControl1.SelectedIndex = 1;
             button6.Visible = false;
             button4.Visible = true;
@@ -41,7 +42,7 @@ namespace PersonPresentation.UI
             textBox4.Clear();
             textBox5.Clear();
             radioButton1.Checked = true;
-
+            textBox1.Enabled = true;
             button6.Visible = true;
             button4.Visible = false;
         }
