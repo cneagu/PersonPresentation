@@ -36,7 +36,7 @@ namespace PersonPresentation.UI
             //persons.Delete("6080203448784");
 
             //persons.ReadAll();
-            Application.Run(new Form1());
+            Application.Run(new PersonManager());
         }
     }
 }

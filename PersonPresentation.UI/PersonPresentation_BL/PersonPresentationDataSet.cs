@@ -5,14 +5,27 @@ using System.Data;
 
 namespace PersonPresentation_BL
 {
+}
+
+namespace PersonPresentation_BL
+{
+}
+
+namespace PersonPresentation_BL
+{
+}
+
+namespace PersonPresentation_BL
+{
 
 
-    partial class PersonPresentationDataSet
+    public partial class PersonPresentationDataSet
     {
-        partial class PersonsDataTable
+        public partial class PersonsDataTable
         {
             public void Populate()
             {
+                this.Clear();
                 PersonRepository persons = new PersonRepository();
                 List<Person> per = new List<Person>();
                 per = persons.ReadAll();
@@ -28,6 +41,11 @@ namespace PersonPresentation_BL
 
                     this.AddPersonsRow(pr);
                 }
+            }
+            public void NewRowFromUI()
+            {
+                PersonsRow newRow = this.NewPersonsRow();
+                this.AddPersonsRow(newRow);
             }
         }
     }

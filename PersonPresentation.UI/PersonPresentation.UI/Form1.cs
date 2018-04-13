@@ -2,162 +2,109 @@
 using PersonPresentation_DL.Model;
 using PersonPresentation_DL.Repository;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace PersonPresentation.UI
 {
-    public partial class Form1 : Form
+    public partial class PersonManager : Form
     {
-        public Form1()
+        private PersonRepository _persons = new PersonRepository();
+        private PersonPresentationDataSet _dataSetSource = new PersonPresentationDataSet();
+        private bool _isNew = false;
+
+        private void SubscribeToEvent()
+        {
+            AddPersonButton.Click += new EventHandler(this.AddPerson_Click);
+            EditButton.Click += new EventHandler(this.Edit_Click);
+            DeleteButton.Click += new EventHandler(this.Delete_Click);
+            CancelButton.Click += new EventHandler(this.CancelTab_Click);
+            SaveButton.Click += new EventHandler(this.Save_Click);
+        }
+
+        public PersonManager()
         {
             InitializeComponent();
+            SubscribeToEvent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Edit_Click(object sender, EventArgs e)
         {
+            _isNew = false;
+            CnpTextBox.Enabled = false;
+            TabManager.SelectedIndex = 1;
+            
+        }
+
+        private void AddPerson_Click(object sender, EventArgs e)
+        {
+            _dataSetSource.Persons.NewRowFromUI();
+            _isNew = true;
+            personsDataTableBindingSource.Position = PersonsGrid.Rows.Count - 2;
+            TabManager.SelectedIndex = 1;
+            CnpTextBox.Enabled = true;
 
         }
 
-        private void Edit(object sender, EventArgs e)
+        private void Delete_Click(object sender, EventArgs e)
         {
-            textBox1.Enabled = false;
-            tabControl1.SelectedIndex = 1;
-            button6.Visible = false;
-            button4.Visible = true;
-        }
 
-        private void Add(object sender, EventArgs e)
-        {
-            tabControl1.SelectedIndex = 1;
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            radioButton1.Checked = true;
-            textBox1.Enabled = true;
-            button6.Visible = true;
-            button4.Visible = false;
-        }
-
-        private void Delete(object sender, EventArgs e)
-        {
-            PersonRepository persons = new PersonRepository();
-            string cnp = textBox1.Text;
-            persons.Delete(cnp);
-
-            PersonPresentationDataSet ds = new PersonPresentationDataSet();
-            ds.Persons.Populate();
-            dataGridView2.DataSource = "";
-            dataGridView2.DataSource = ds.Persons;
+            string cnp = CnpTextBox.Text;
+            _persons.Delete(cnp);
+            _dataSetSource.Persons.Populate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-
-            //PersonPresentation persons = new PersonPresentation();
-
-
-            //    bs.Add(obj);
-
-            //dataGridView2.DataSource = bs;
-            //dataGridView2.AutoGenerateColumns = true;
-            PersonPresentationDataSet ds = new PersonPresentationDataSet();
-            ds.Persons.Populate();
-            personsDataTableBindingSource.DataSource = ds.Persons;
-            //dataGridView2.DataSource = ds.Persons;
-            //dataGridView2.AutoGenerateColumns = true;
-
+            _dataSetSource.Persons.Populate();
+            personsDataTableBindingSource.DataSource = _dataSetSource.Persons;
         }
 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //MessageBox.Show(dataGridView2.SelectedCells[2].Value.ToString());
-            textBox1.Clear();
-            textBox2.Clear();
-            textBox3.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox1.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-            textBox2.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
-            textBox3.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBox4.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-            textBox5.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-            //radioButton1
-            if (dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString().Equals("True") )
-            {
-                radioButton2.Checked = true;
-            }
+            
+        }
+
+        private void CancelTab_Click(object sender, EventArgs e)
+        {
+            TabManager.SelectedIndex = 0;
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            Person _person = new Person();
+            _person.CNP = CnpTextBox.Text;
+            _person.FirstName = FirstNameTextBox.Text;
+            _person.LastName = LastNameTextBox.Text;
+            _person.Birth = DateTime.Parse(BirthTextBox.Text);
+            _person.Age = Int32.Parse(AgeTextBox.Text);
+            _person.Sex = MRadioButton.Checked;
+            if(_isNew)
+                _persons.Insert(_person);
             else
-            {
-                radioButton2.Checked = false;
-                radioButton1.Checked = true;
-            }
-
-            //string str = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString() +
-            //        dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString() +
-            //        dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString() +
-            //        dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString() +
-            //        dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString() +
-            //        dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-            //    MessageBox.Show(str);
-
+                _persons.UpdateById(_person);
+            _dataSetSource.Persons.Populate();
+            TabManager.SelectedIndex = 0;
         }
 
-        private void cancelTab(object sender, EventArgs e)
+
+        private void NewPersonSave(object sender, EventArgs e)
         {
-            tabControl1.SelectedIndex = 0;
+            Person _person = new Person();
+
+            _person.CNP = CnpTextBox.Text;
+            _person.FirstName = FirstNameTextBox.Text;
+            _person.LastName = LastNameTextBox.Text;
+            _person.Birth = DateTime.Parse(BirthTextBox.Text);
+            _person.Age = Int32.Parse(AgeTextBox.Text);
+            _person.Sex = MRadioButton.Checked;
+            _persons.Insert(_person);
+            _persons.UpdateById(_person);
+            _dataSetSource.Persons.Populate();
+            TabManager.SelectedIndex = 0;
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            PersonRepository persons = new PersonRepository();
-            Person person = new Person();
-
-            person.CNP = textBox1.Text;
-            person.FirstName = textBox2.Text;
-            person.LastName = textBox3.Text;
-            person.Birth = DateTime.Parse(textBox4.Text);
-            person.Age = Int32.Parse(textBox5.Text);
-            person.Sex = radioButton1.Checked;
-            //persons.Insert(person);
-
-            persons.UpdateById(person);
-
-
-            PersonPresentationDataSet ds = new PersonPresentationDataSet();
-            ds.Persons.Populate();
-            dataGridView2.DataSource = "";
-            dataGridView2.DataSource = ds.Persons;
-            tabControl1.SelectedIndex = 0;
-
-        }
-
-        private void AddNew(object sender, EventArgs e)
-        {
-            PersonRepository persons = new PersonRepository();
-            Person person = new Person();
-
-            person.CNP = textBox1.Text;
-            person.FirstName = textBox2.Text;
-            person.LastName = textBox3.Text;
-            person.Birth = DateTime.Parse(textBox4.Text);
-            person.Age = Int32.Parse(textBox5.Text);
-            person.Sex = radioButton1.Checked;
-            persons.Insert(person);
-            PersonPresentationDataSet ds = new PersonPresentationDataSet();
-            ds.Persons.Populate();
-            dataGridView2.DataSource = "";
-            dataGridView2.DataSource = ds.Persons;
-            tabControl1.SelectedIndex = 0;
-        }
     }
+
 }

@@ -1,6 +1,6 @@
 ﻿namespace PersonPresentation.UI
 {
-    partial class Form1
+    partial class PersonManager
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.TabManager = new System.Windows.Forms.TabControl();
+            this.OverViewTab = new System.Windows.Forms.TabPage();
+            this.PersonsGrid = new System.Windows.Forms.DataGridView();
             this.cNPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,75 +39,74 @@
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.personsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
+            this.AddPersonButton = new System.Windows.Forms.Button();
+            this.DetailsTab = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.FRadioButton = new System.Windows.Forms.RadioButton();
+            this.MRadioButton = new System.Windows.Forms.RadioButton();
+            this.AgeTextBox = new System.Windows.Forms.TextBox();
+            this.BirthTextBox = new System.Windows.Forms.TextBox();
+            this.LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.labelSex = new System.Windows.Forms.Label();
+            this.labelAge = new System.Windows.Forms.Label();
+            this.labelBirth = new System.Windows.Forms.Label();
+            this.labelLastName = new System.Windows.Forms.Label();
+            this.labelFirstName = new System.Windows.Forms.Label();
+            this.labelCNP = new System.Windows.Forms.Label();
+            this.CnpTextBox = new System.Windows.Forms.TextBox();
+            this.TabManager.SuspendLayout();
+            this.OverViewTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PersonsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.DetailsTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // TabManager
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(3, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(796, 426);
-            this.tabControl1.TabIndex = 0;
+            this.TabManager.Controls.Add(this.OverViewTab);
+            this.TabManager.Controls.Add(this.DetailsTab);
+            this.TabManager.Location = new System.Drawing.Point(3, 12);
+            this.TabManager.Name = "TabManager";
+            this.TabManager.SelectedIndex = 0;
+            this.TabManager.Size = new System.Drawing.Size(796, 426);
+            this.TabManager.TabIndex = 0;
             // 
-            // tabPage1
+            // OverViewTab
             // 
-            this.tabPage1.Controls.Add(this.dataGridView2);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(788, 400);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Overview";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.OverViewTab.Controls.Add(this.PersonsGrid);
+            this.OverViewTab.Controls.Add(this.DeleteButton);
+            this.OverViewTab.Controls.Add(this.EditButton);
+            this.OverViewTab.Controls.Add(this.AddPersonButton);
+            this.OverViewTab.Location = new System.Drawing.Point(4, 22);
+            this.OverViewTab.Name = "OverViewTab";
+            this.OverViewTab.Padding = new System.Windows.Forms.Padding(3);
+            this.OverViewTab.Size = new System.Drawing.Size(788, 400);
+            this.OverViewTab.TabIndex = 0;
+            this.OverViewTab.Text = "Overview";
+            this.OverViewTab.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // PersonsGrid
             // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PersonsGrid.AutoGenerateColumns = false;
+            this.PersonsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PersonsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cNPDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
             this.birthDataGridViewTextBoxColumn,
             this.ageDataGridViewTextBoxColumn,
             this.sexDataGridViewCheckBoxColumn});
-            this.dataGridView2.DataSource = this.personsDataTableBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(751, 345);
-            this.dataGridView2.TabIndex = 2;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
+            this.PersonsGrid.DataSource = this.personsDataTableBindingSource;
+            this.PersonsGrid.Location = new System.Drawing.Point(6, 6);
+            this.PersonsGrid.Name = "PersonsGrid";
+            this.PersonsGrid.Size = new System.Drawing.Size(751, 345);
+            this.PersonsGrid.TabIndex = 2;
+            this.PersonsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
             // cNPDataGridViewTextBoxColumn
             // 
@@ -150,203 +149,59 @@
             this.personsDataTableBindingSource.DataMember = "Persons";
             this.personsDataTableBindingSource.DataSource = typeof(PersonPresentation_BL.PersonPresentationDataSet);
             // 
-            // button3
+            // DeleteButton
             // 
-            this.button3.Location = new System.Drawing.Point(544, 371);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Delete);
+            this.DeleteButton.Location = new System.Drawing.Point(544, 371);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteButton.TabIndex = 1;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.Delete_Click);
             // 
-            // button2
+            // EditButton
             // 
-            this.button2.Location = new System.Drawing.Point(625, 371);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Edit);
+            this.EditButton.Location = new System.Drawing.Point(625, 371);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(75, 23);
+            this.EditButton.TabIndex = 1;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // AddPersonButton
             // 
-            this.button1.Location = new System.Drawing.Point(706, 371);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add Person";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Add);
+            this.AddPersonButton.Location = new System.Drawing.Point(706, 371);
+            this.AddPersonButton.Name = "AddPersonButton";
+            this.AddPersonButton.Size = new System.Drawing.Size(75, 23);
+            this.AddPersonButton.TabIndex = 1;
+            this.AddPersonButton.Text = "Add Person";
+            this.AddPersonButton.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // DetailsTab
             // 
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.radioButton2);
-            this.tabPage2.Controls.Add(this.radioButton1);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(788, 400);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Details";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(278, 331);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Cancel";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.cancelTab);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(157, 331);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Save";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(278, 259);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(31, 17);
-            this.radioButton2.TabIndex = 12;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "F";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(209, 259);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(34, 17);
-            this.radioButton1.TabIndex = 11;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "M";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(209, 210);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 10;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(209, 172);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 9;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(209, 138);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 8;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(209, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(136, 259);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Sex";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(136, 213);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(26, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Age";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(136, 175);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Birth";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(136, 141);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "LastName";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(136, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "FirstName";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(136, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "CNP";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(209, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(168, 331);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "save";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.AddNew);
+            this.DetailsTab.Controls.Add(this.label7);
+            this.DetailsTab.Controls.Add(this.CancelButton);
+            this.DetailsTab.Controls.Add(this.SaveButton);
+            this.DetailsTab.Controls.Add(this.FRadioButton);
+            this.DetailsTab.Controls.Add(this.MRadioButton);
+            this.DetailsTab.Controls.Add(this.AgeTextBox);
+            this.DetailsTab.Controls.Add(this.BirthTextBox);
+            this.DetailsTab.Controls.Add(this.LastNameTextBox);
+            this.DetailsTab.Controls.Add(this.FirstNameTextBox);
+            this.DetailsTab.Controls.Add(this.labelSex);
+            this.DetailsTab.Controls.Add(this.labelAge);
+            this.DetailsTab.Controls.Add(this.labelBirth);
+            this.DetailsTab.Controls.Add(this.labelLastName);
+            this.DetailsTab.Controls.Add(this.labelFirstName);
+            this.DetailsTab.Controls.Add(this.labelCNP);
+            this.DetailsTab.Controls.Add(this.CnpTextBox);
+            this.DetailsTab.Location = new System.Drawing.Point(4, 22);
+            this.DetailsTab.Name = "DetailsTab";
+            this.DetailsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.DetailsTab.Size = new System.Drawing.Size(788, 400);
+            this.DetailsTab.TabIndex = 1;
+            this.DetailsTab.Text = "Details";
+            this.DetailsTab.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -357,58 +212,192 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "YYYY-MM-DD";
             // 
-            // Form1
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(278, 331);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 13;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(157, 331);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 13;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            // 
+            // FRadioButton
+            // 
+            this.FRadioButton.AutoSize = true;
+            this.FRadioButton.Location = new System.Drawing.Point(278, 259);
+            this.FRadioButton.Name = "FRadioButton";
+            this.FRadioButton.Size = new System.Drawing.Size(31, 17);
+            this.FRadioButton.TabIndex = 12;
+            this.FRadioButton.TabStop = true;
+            this.FRadioButton.Text = "F";
+            this.FRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // MRadioButton
+            // 
+            this.MRadioButton.AutoSize = true;
+            this.MRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.personsDataTableBindingSource, "Sex", true));
+            this.MRadioButton.Location = new System.Drawing.Point(209, 259);
+            this.MRadioButton.Name = "MRadioButton";
+            this.MRadioButton.Size = new System.Drawing.Size(34, 17);
+            this.MRadioButton.TabIndex = 11;
+            this.MRadioButton.TabStop = true;
+            this.MRadioButton.Text = "M";
+            this.MRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // AgeTextBox
+            // 
+            this.AgeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsDataTableBindingSource, "Age", true));
+            this.AgeTextBox.Location = new System.Drawing.Point(209, 210);
+            this.AgeTextBox.Name = "AgeTextBox";
+            this.AgeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.AgeTextBox.TabIndex = 10;
+            // 
+            // BirthTextBox
+            // 
+            this.BirthTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsDataTableBindingSource, "Birth", true));
+            this.BirthTextBox.Location = new System.Drawing.Point(209, 172);
+            this.BirthTextBox.Name = "BirthTextBox";
+            this.BirthTextBox.Size = new System.Drawing.Size(100, 20);
+            this.BirthTextBox.TabIndex = 9;
+            // 
+            // LastNameTextBox
+            // 
+            this.LastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsDataTableBindingSource, "LastName", true));
+            this.LastNameTextBox.Location = new System.Drawing.Point(209, 138);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.LastNameTextBox.TabIndex = 8;
+            // 
+            // FirstNameTextBox
+            // 
+            this.FirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsDataTableBindingSource, "FirstName", true));
+            this.FirstNameTextBox.Location = new System.Drawing.Point(209, 95);
+            this.FirstNameTextBox.Name = "FirstNameTextBox";
+            this.FirstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.FirstNameTextBox.TabIndex = 7;
+            // 
+            // labelSex
+            // 
+            this.labelSex.AutoSize = true;
+            this.labelSex.Location = new System.Drawing.Point(136, 259);
+            this.labelSex.Name = "labelSex";
+            this.labelSex.Size = new System.Drawing.Size(25, 13);
+            this.labelSex.TabIndex = 6;
+            this.labelSex.Text = "Sex";
+            // 
+            // labelAge
+            // 
+            this.labelAge.AutoSize = true;
+            this.labelAge.Location = new System.Drawing.Point(136, 213);
+            this.labelAge.Name = "labelAge";
+            this.labelAge.Size = new System.Drawing.Size(26, 13);
+            this.labelAge.TabIndex = 5;
+            this.labelAge.Text = "Age";
+            // 
+            // labelBirth
+            // 
+            this.labelBirth.AutoSize = true;
+            this.labelBirth.Location = new System.Drawing.Point(136, 175);
+            this.labelBirth.Name = "labelBirth";
+            this.labelBirth.Size = new System.Drawing.Size(28, 13);
+            this.labelBirth.TabIndex = 4;
+            this.labelBirth.Text = "Birth";
+            // 
+            // labelLastName
+            // 
+            this.labelLastName.AutoSize = true;
+            this.labelLastName.Location = new System.Drawing.Point(136, 141);
+            this.labelLastName.Name = "labelLastName";
+            this.labelLastName.Size = new System.Drawing.Size(55, 13);
+            this.labelLastName.TabIndex = 3;
+            this.labelLastName.Text = "LastName";
+            // 
+            // labelFirstName
+            // 
+            this.labelFirstName.AutoSize = true;
+            this.labelFirstName.Location = new System.Drawing.Point(136, 98);
+            this.labelFirstName.Name = "labelFirstName";
+            this.labelFirstName.Size = new System.Drawing.Size(54, 13);
+            this.labelFirstName.TabIndex = 2;
+            this.labelFirstName.Text = "FirstName";
+            // 
+            // labelCNP
+            // 
+            this.labelCNP.AutoSize = true;
+            this.labelCNP.Location = new System.Drawing.Point(136, 58);
+            this.labelCNP.Name = "labelCNP";
+            this.labelCNP.Size = new System.Drawing.Size(29, 13);
+            this.labelCNP.TabIndex = 1;
+            this.labelCNP.Text = "CNP";
+            // 
+            // CnpTextBox
+            // 
+            this.CnpTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsDataTableBindingSource, "CNP", true));
+            this.CnpTextBox.Location = new System.Drawing.Point(209, 55);
+            this.CnpTextBox.Name = "CnpTextBox";
+            this.CnpTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CnpTextBox.TabIndex = 0;
+            // 
+            // PersonManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.TabManager);
+            this.Name = "PersonManager";
+            this.Text = "PersonManager";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.TabManager.ResumeLayout(false);
+            this.OverViewTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PersonsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.DetailsTab.ResumeLayout(false);
+            this.DetailsTab.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TabControl TabManager;
+        private System.Windows.Forms.TabPage OverViewTab;
+        private System.Windows.Forms.TabPage DetailsTab;
+        private System.Windows.Forms.Button AddPersonButton;
+        private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.DataGridView PersonsGrid;
         private System.Windows.Forms.BindingSource personsDataTableBindingSource;
+        private System.Windows.Forms.RadioButton FRadioButton;
+        private System.Windows.Forms.RadioButton MRadioButton;
+        private System.Windows.Forms.TextBox AgeTextBox;
+        private System.Windows.Forms.TextBox BirthTextBox;
+        private System.Windows.Forms.TextBox LastNameTextBox;
+        private System.Windows.Forms.TextBox FirstNameTextBox;
+        private System.Windows.Forms.Label labelSex;
+        private System.Windows.Forms.Label labelAge;
+        private System.Windows.Forms.Label labelBirth;
+        private System.Windows.Forms.Label labelLastName;
+        private System.Windows.Forms.Label labelFirstName;
+        private System.Windows.Forms.Label labelCNP;
+        private System.Windows.Forms.TextBox CnpTextBox;
+        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sexDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label7;
     }
 }
 

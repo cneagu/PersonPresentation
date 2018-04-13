@@ -12,10 +12,10 @@
   <xs:element name="PersonPresentation" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PersonPresentation" msprop:Generator_UserDSName="PersonPresentation">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Persons" msprop:Generator_TableClassName="PersonsDataTable" msprop:Generator_TableVarName="tablePersons" msprop:Generator_TablePropName="Persons" msprop:Generator_RowDeletingName="PersonsRowDeleting" msprop:Generator_RowChangingName="PersonsRowChanging" msprop:Generator_RowEvHandlerName="PersonsRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonsRowDeleted" msprop:Generator_UserTableName="Persons" msprop:Generator_RowChangedName="PersonsRowChanged" msprop:Generator_RowEvArgName="PersonsRowChangeEvent" msprop:Generator_RowClassName="PersonsRow">
+        <xs:element name="Persons" msprop:Generator_TableClassName="PersonsDataTable" msprop:Generator_TableVarName="tablePersons" msprop:Generator_RowChangedName="PersonsRowChanged" msprop:Generator_TablePropName="Persons" msprop:Generator_RowDeletingName="PersonsRowDeleting" msprop:Generator_RowChangingName="PersonsRowChanging" msprop:Generator_RowEvHandlerName="PersonsRowChangeEventHandler" msprop:Generator_RowDeletedName="PersonsRowDeleted" msprop:Generator_RowClassName="PersonsRow" msprop:Generator_UserTableName="Persons" msprop:Generator_RowEvArgName="PersonsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="CNP" msprop:Generator_ColumnVarNameInTable="columnCNP" msprop:Generator_ColumnPropNameInRow="CNP" msprop:Generator_ColumnPropNameInTable="CNPColumn" msprop:Generator_UserColumnName="CNP" type="xs:string" />
+              <xs:element name="CNP" msprop:nullValue="_null" msprop:Generator_ColumnPropNameInRow="CNP" msprop:Generator_ColumnVarNameInTable="columnCNP" msprop:Generator_ColumnPropNameInTable="CNPColumn" msprop:Generator_UserColumnName="CNP" type="xs:string" minOccurs="0" />
               <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" type="xs:string" minOccurs="0" />
               <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" type="xs:string" minOccurs="0" />
               <xs:element name="Birth" msprop:Generator_ColumnVarNameInTable="columnBirth" msprop:Generator_ColumnPropNameInRow="Birth" msprop:Generator_ColumnPropNameInTable="BirthColumn" msprop:Generator_UserColumnName="Birth" type="xs:dateTime" minOccurs="0" />
@@ -26,9 +26,5 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
-    <xs:unique name="PersonsKey" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Persons" />
-      <xs:field xpath="mstns:CNP" />
-    </xs:unique>
   </xs:element>
 </xs:schema>

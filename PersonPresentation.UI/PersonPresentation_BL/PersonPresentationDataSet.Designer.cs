@@ -425,13 +425,6 @@ namespace PersonPresentation_BL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PersonsRow FindByCNP(string CNP) {
-                return ((PersonsRow)(this.Rows.Find(new object[] {
-                            CNP})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 PersonsDataTable cln = ((PersonsDataTable)(base.Clone()));
                 cln.InitVars();
@@ -470,10 +463,6 @@ namespace PersonPresentation_BL {
                 base.Columns.Add(this.columnAge);
                 this.columnSex = new global::System.Data.DataColumn("Sex", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSex);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("PersonsKey", new global::System.Data.DataColumn[] {
-                                this.columnCNP}, true));
-                this.columnCNP.AllowDBNull = false;
-                this.columnCNP.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -618,7 +607,12 @@ namespace PersonPresentation_BL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string CNP {
                 get {
-                    return ((string)(this[this.tablePersons.CNPColumn]));
+                    if (this.IsCNPNull()) {
+                        return null;
+                    }
+                    else {
+                        return ((string)(this[this.tablePersons.CNPColumn]));
+                    }
                 }
                 set {
                     this[this.tablePersons.CNPColumn] = value;
@@ -703,6 +697,18 @@ namespace PersonPresentation_BL {
                 set {
                     this[this.tablePersons.SexColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCNPNull() {
+                return this.IsNull(this.tablePersons.CNPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCNPNull() {
+                this[this.tablePersons.CNPColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
