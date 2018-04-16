@@ -14,7 +14,7 @@ namespace PersonPresentation_BL
         public string LastName { get; set; }
         public DateTime Birth { get; set; }
         public int Age { get; set; }
-        public bool Sex { get; set; }
+        public string Sex { get; set; }
         #endregion
     }
 }

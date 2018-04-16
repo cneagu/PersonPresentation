@@ -32,6 +32,14 @@ namespace PersonPresentation.UI
             _isNew = false;
             CnpTextBox.Enabled = false;
             TabManager.SelectedIndex = 1;
+
+            var objct = (System.Data.DataRowView)personsDataTableBindingSource.Current;
+            PersonPresentationDataSet.PersonsRow personRow = (PersonPresentationDataSet.PersonsRow)objct.Row;
+            string sex = personRow.Sex;
+            if (sex == "M")
+                MRadioButton.Checked = true;
+            else
+                FRadioButton.Checked = true;
         }
 
         private void AddPerson_Click(object sender, EventArgs e)
@@ -62,6 +70,7 @@ namespace PersonPresentation.UI
         {
             _dataSetSource.Persons.Populate();
             personsDataTableBindingSource.DataSource = _dataSetSource.Persons;
+            PersonsGrid.ReadOnly = true;
         }
 
         private void CancelTab_Click(object sender, EventArgs e)
@@ -100,7 +109,10 @@ namespace PersonPresentation.UI
                 _person.LastName = LastNameTextBox.Text;
                 _person.Birth = DateTime.Parse(birthTimePicker.Text);
                 _person.Age = Int32.Parse(AgeTextBox.Text);
-                _person.Sex = MRadioButton.Checked;
+                if (MRadioButton.Checked)
+                    _person.Sex = "M";
+                else
+                    _person.Sex = "F";
                 if (_isNew)
                     _persons.Insert(_person);
                 else
@@ -120,7 +132,10 @@ namespace PersonPresentation.UI
             _person.LastName = LastNameTextBox.Text;
             _person.Birth = DateTime.Parse(birthTimePicker.Text);
             _person.Age = Int32.Parse(AgeTextBox.Text);
-            _person.Sex = MRadioButton.Checked;
+            if (MRadioButton.Checked)
+                _person.Sex = "M";
+            else
+                _person.Sex = "F";
             _persons.Insert(_person);
             _persons.UpdateById(_person);
             _dataSetSource.Persons.Populate();

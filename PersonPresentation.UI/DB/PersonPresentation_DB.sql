@@ -7,7 +7,7 @@ FirstName nvarchar(30) NOT NULL,
 LastName nvarchar(120) NOT NULL,
 Birth datetime NOT NULL,
 Age int,
-Sex bool,
+Sex nvarchar(3),
 CONSTRAINT PK_Persons PRIMARY KEY (CNP)
 );
 

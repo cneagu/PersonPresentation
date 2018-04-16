@@ -32,17 +32,11 @@
             this.TabManager = new System.Windows.Forms.TabControl();
             this.OverViewTab = new System.Windows.Forms.TabPage();
             this.PersonsGrid = new System.Windows.Forms.DataGridView();
-            this.cNPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.personsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DeleteButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.AddPersonButton = new System.Windows.Forms.Button();
             this.DetailsTab = new System.Windows.Forms.TabPage();
+            this.birthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.CancelButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.FRadioButton = new System.Windows.Forms.RadioButton();
@@ -57,17 +51,22 @@
             this.labelFirstName = new System.Windows.Forms.Label();
             this.labelCNP = new System.Windows.Forms.Label();
             this.CnpTextBox = new System.Windows.Forms.TextBox();
-            this.birthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.CnpErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.FirstNameErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.LastNameErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.BirthErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.AgeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.SexErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cNPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TabManager.SuspendLayout();
             this.OverViewTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PersonsGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).BeginInit();
             this.DetailsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CnpErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FirstNameErrorProvider)).BeginInit();
@@ -75,6 +74,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BirthErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AgeErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SexErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // TabManager
@@ -111,53 +111,12 @@
             this.lastNameDataGridViewTextBoxColumn,
             this.birthDataGridViewTextBoxColumn,
             this.ageDataGridViewTextBoxColumn,
-            this.sexDataGridViewCheckBoxColumn});
+            this.Sex});
             this.PersonsGrid.DataSource = this.personsDataTableBindingSource;
             this.PersonsGrid.Location = new System.Drawing.Point(6, 6);
             this.PersonsGrid.Name = "PersonsGrid";
             this.PersonsGrid.Size = new System.Drawing.Size(751, 345);
             this.PersonsGrid.TabIndex = 2;
-            // 
-            // cNPDataGridViewTextBoxColumn
-            // 
-            this.cNPDataGridViewTextBoxColumn.DataPropertyName = "CNP";
-            this.cNPDataGridViewTextBoxColumn.HeaderText = "CNP";
-            this.cNPDataGridViewTextBoxColumn.Name = "cNPDataGridViewTextBoxColumn";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // birthDataGridViewTextBoxColumn
-            // 
-            this.birthDataGridViewTextBoxColumn.DataPropertyName = "Birth";
-            this.birthDataGridViewTextBoxColumn.HeaderText = "Birth";
-            this.birthDataGridViewTextBoxColumn.Name = "birthDataGridViewTextBoxColumn";
-            // 
-            // ageDataGridViewTextBoxColumn
-            // 
-            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
-            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
-            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            // 
-            // sexDataGridViewCheckBoxColumn
-            // 
-            this.sexDataGridViewCheckBoxColumn.DataPropertyName = "Sex";
-            this.sexDataGridViewCheckBoxColumn.HeaderText = "Sex";
-            this.sexDataGridViewCheckBoxColumn.Name = "sexDataGridViewCheckBoxColumn";
-            // 
-            // personsDataTableBindingSource
-            // 
-            this.personsDataTableBindingSource.DataMember = "Persons";
-            this.personsDataTableBindingSource.DataSource = typeof(PersonPresentation_BL.PersonPresentationDataSet);
             // 
             // DeleteButton
             // 
@@ -212,6 +171,18 @@
             this.DetailsTab.Text = "Details";
             this.DetailsTab.UseVisualStyleBackColor = true;
             // 
+            // birthTimePicker
+            // 
+            this.birthTimePicker.CustomFormat = "yyyy MM dd";
+            this.birthTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.personsDataTableBindingSource, "Birth", true));
+            this.birthTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.birthTimePicker.Location = new System.Drawing.Point(209, 169);
+            this.birthTimePicker.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
+            this.birthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.birthTimePicker.Name = "birthTimePicker";
+            this.birthTimePicker.Size = new System.Drawing.Size(100, 20);
+            this.birthTimePicker.TabIndex = 16;
+            // 
             // CancelButton
             // 
             this.CancelButton.Location = new System.Drawing.Point(278, 331);
@@ -244,7 +215,6 @@
             // MRadioButton
             // 
             this.MRadioButton.AutoSize = true;
-            this.MRadioButton.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.personsDataTableBindingSource, "Sex", true));
             this.MRadioButton.Location = new System.Drawing.Point(209, 259);
             this.MRadioButton.Name = "MRadioButton";
             this.MRadioButton.Size = new System.Drawing.Size(34, 17);
@@ -339,18 +309,6 @@
             this.CnpTextBox.Size = new System.Drawing.Size(100, 20);
             this.CnpTextBox.TabIndex = 0;
             // 
-            // birthTimePicker
-            // 
-            this.birthTimePicker.CustomFormat = "yyyy MM dd";
-            this.birthTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.personsDataTableBindingSource, "Birth", true));
-            this.birthTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.birthTimePicker.Location = new System.Drawing.Point(209, 169);
-            this.birthTimePicker.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
-            this.birthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.birthTimePicker.Name = "birthTimePicker";
-            this.birthTimePicker.Size = new System.Drawing.Size(100, 20);
-            this.birthTimePicker.TabIndex = 16;
-            // 
             // CnpErrorProvider
             // 
             this.CnpErrorProvider.ContainerControl = this;
@@ -375,6 +333,47 @@
             // 
             this.SexErrorProvider.ContainerControl = this;
             // 
+            // Sex
+            // 
+            this.Sex.DataPropertyName = "Sex";
+            this.Sex.HeaderText = "Sex";
+            this.Sex.Name = "Sex";
+            // 
+            // cNPDataGridViewTextBoxColumn
+            // 
+            this.cNPDataGridViewTextBoxColumn.DataPropertyName = "CNP";
+            this.cNPDataGridViewTextBoxColumn.HeaderText = "CNP";
+            this.cNPDataGridViewTextBoxColumn.Name = "cNPDataGridViewTextBoxColumn";
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            // 
+            // birthDataGridViewTextBoxColumn
+            // 
+            this.birthDataGridViewTextBoxColumn.DataPropertyName = "Birth";
+            this.birthDataGridViewTextBoxColumn.HeaderText = "Birth";
+            this.birthDataGridViewTextBoxColumn.Name = "birthDataGridViewTextBoxColumn";
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            // 
+            // personsDataTableBindingSource
+            // 
+            this.personsDataTableBindingSource.DataMember = "Persons";
+            this.personsDataTableBindingSource.DataSource = typeof(PersonPresentation_BL.PersonPresentationDataSet);
+            // 
             // PersonManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,7 +386,6 @@
             this.TabManager.ResumeLayout(false);
             this.OverViewTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PersonsGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).EndInit();
             this.DetailsTab.ResumeLayout(false);
             this.DetailsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CnpErrorProvider)).EndInit();
@@ -396,6 +394,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.BirthErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AgeErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SexErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -424,12 +423,6 @@
         private System.Windows.Forms.TextBox CnpTextBox;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn sexDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DateTimePicker birthTimePicker;
         private System.Windows.Forms.ErrorProvider CnpErrorProvider;
         private System.Windows.Forms.ErrorProvider FirstNameErrorProvider;
@@ -437,6 +430,12 @@
         private System.Windows.Forms.ErrorProvider BirthErrorProvider;
         private System.Windows.Forms.ErrorProvider AgeErrorProvider;
         private System.Windows.Forms.ErrorProvider SexErrorProvider;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cNPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
     }
 }
 

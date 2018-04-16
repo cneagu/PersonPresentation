@@ -409,7 +409,7 @@ namespace PersonPresentation_BL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public PersonsRow AddPersonsRow(string CNP, string FirstName, string LastName, System.DateTime Birth, int Age, bool Sex) {
+            public PersonsRow AddPersonsRow(string CNP, string FirstName, string LastName, System.DateTime Birth, int Age, string Sex) {
                 PersonsRow rowPersonsRow = ((PersonsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CNP,
@@ -461,7 +461,7 @@ namespace PersonPresentation_BL {
                 base.Columns.Add(this.columnBirth);
                 this.columnAge = new global::System.Data.DataColumn("Age", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAge);
-                this.columnSex = new global::System.Data.DataColumn("Sex", typeof(bool), null, global::System.Data.MappingType.Element);
+                this.columnSex = new global::System.Data.DataColumn("Sex", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSex);
             }
             
@@ -685,10 +685,10 @@ namespace PersonPresentation_BL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool Sex {
+            public string Sex {
                 get {
                     try {
-                        return ((bool)(this[this.tablePersons.SexColumn]));
+                        return ((string)(this[this.tablePersons.SexColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Sex\' in table \'Persons\' is DBNull.", e);

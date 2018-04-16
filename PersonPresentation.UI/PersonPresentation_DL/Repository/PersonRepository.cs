@@ -28,7 +28,7 @@ namespace PersonPresentation_DL.Repository
         {
             string query = "INSERT INTO Persons(CNP, FirstName, LastName, Birth, Age, Sex)" +
                            "VALUES('" + person.CNP + "', '" + person.FirstName + "', '" + 
-                           person.LastName + "', STR_TO_DATE('" + person.Birth + "', '%m/%d/%Y %h:%i:%s %p'), " + person.Age + ", " + person.Sex + ");";
+                           person.LastName + "', STR_TO_DATE('" + person.Birth + "', '%m/%d/%Y %h:%i:%s %p'), " + person.Age + ", '" + person.Sex + "');";
             ExecuteNonQuery(query);
         }
 
@@ -39,8 +39,8 @@ namespace PersonPresentation_DL.Repository
                            "', LastName = '" + person.LastName +
                            "', Birth = STR_TO_DATE('" + person.Birth + "', '%m/%d/%Y %h:%i:%s %p'), " +
                             "Age = " + person.Age + ", " +
-                            "Sex = " + person.Sex +
-                            " WHERE CNP = '" + person.CNP + "';"; 
+                            "Sex = '" + person.Sex +
+                            "' WHERE CNP = '" + person.CNP + "';"; 
             ExecuteNonQuery(query);
         }
 
@@ -58,7 +58,7 @@ namespace PersonPresentation_DL.Repository
             persons.LastName = reader.GetString(reader.GetOrdinal("LastName"));
             persons.Birth = reader.GetDateTime(reader.GetOrdinal("Birth"));
             persons.Age = reader.GetInt32(reader.GetOrdinal("Age"));
-            persons.Sex = reader.GetBoolean(reader.GetOrdinal("Sex"));
+            persons.Sex = reader.GetString(reader.GetOrdinal("Sex"));
 
             return persons;
         }
