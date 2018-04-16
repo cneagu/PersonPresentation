@@ -79,6 +79,9 @@
             // 
             // TabManager
             // 
+            this.TabManager.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TabManager.Controls.Add(this.OverViewTab);
             this.TabManager.Controls.Add(this.DetailsTab);
             this.TabManager.Location = new System.Drawing.Point(3, 12);
@@ -103,6 +106,9 @@
             // 
             // PersonsGrid
             // 
+            this.PersonsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PersonsGrid.AutoGenerateColumns = false;
             this.PersonsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PersonsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -120,6 +126,7 @@
             // 
             // DeleteButton
             // 
+            this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteButton.Location = new System.Drawing.Point(544, 371);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
@@ -130,6 +137,7 @@
             // 
             // EditButton
             // 
+            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.EditButton.Location = new System.Drawing.Point(625, 371);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(75, 23);
@@ -139,6 +147,7 @@
             // 
             // AddPersonButton
             // 
+            this.AddPersonButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddPersonButton.Location = new System.Drawing.Point(706, 371);
             this.AddPersonButton.Name = "AddPersonButton";
             this.AddPersonButton.Size = new System.Drawing.Size(75, 23);
