@@ -43,13 +43,11 @@
             this.EditButton = new System.Windows.Forms.Button();
             this.AddPersonButton = new System.Windows.Forms.Button();
             this.DetailsTab = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
             this.CancelButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.FRadioButton = new System.Windows.Forms.RadioButton();
             this.MRadioButton = new System.Windows.Forms.RadioButton();
             this.AgeTextBox = new System.Windows.Forms.TextBox();
-            this.BirthTextBox = new System.Windows.Forms.TextBox();
             this.LastNameTextBox = new System.Windows.Forms.TextBox();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
             this.labelSex = new System.Windows.Forms.Label();
@@ -59,11 +57,24 @@
             this.labelFirstName = new System.Windows.Forms.Label();
             this.labelCNP = new System.Windows.Forms.Label();
             this.CnpTextBox = new System.Windows.Forms.TextBox();
+            this.birthTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CnpErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.FirstNameErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.LastNameErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BirthErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.AgeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.SexErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.TabManager.SuspendLayout();
             this.OverViewTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PersonsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).BeginInit();
             this.DetailsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CnpErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FirstNameErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastNameErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BirthErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AgeErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SexErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // TabManager
@@ -106,7 +117,6 @@
             this.PersonsGrid.Name = "PersonsGrid";
             this.PersonsGrid.Size = new System.Drawing.Size(751, 345);
             this.PersonsGrid.TabIndex = 2;
-            this.PersonsGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
             // cNPDataGridViewTextBoxColumn
             // 
@@ -179,13 +189,12 @@
             // 
             // DetailsTab
             // 
-            this.DetailsTab.Controls.Add(this.label7);
+            this.DetailsTab.Controls.Add(this.birthTimePicker);
             this.DetailsTab.Controls.Add(this.CancelButton);
             this.DetailsTab.Controls.Add(this.SaveButton);
             this.DetailsTab.Controls.Add(this.FRadioButton);
             this.DetailsTab.Controls.Add(this.MRadioButton);
             this.DetailsTab.Controls.Add(this.AgeTextBox);
-            this.DetailsTab.Controls.Add(this.BirthTextBox);
             this.DetailsTab.Controls.Add(this.LastNameTextBox);
             this.DetailsTab.Controls.Add(this.FirstNameTextBox);
             this.DetailsTab.Controls.Add(this.labelSex);
@@ -202,15 +211,6 @@
             this.DetailsTab.TabIndex = 1;
             this.DetailsTab.Text = "Details";
             this.DetailsTab.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(334, 175);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(75, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "YYYY-MM-DD";
             // 
             // CancelButton
             // 
@@ -260,14 +260,6 @@
             this.AgeTextBox.Name = "AgeTextBox";
             this.AgeTextBox.Size = new System.Drawing.Size(100, 20);
             this.AgeTextBox.TabIndex = 10;
-            // 
-            // BirthTextBox
-            // 
-            this.BirthTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.personsDataTableBindingSource, "Birth", true));
-            this.BirthTextBox.Location = new System.Drawing.Point(209, 172);
-            this.BirthTextBox.Name = "BirthTextBox";
-            this.BirthTextBox.Size = new System.Drawing.Size(100, 20);
-            this.BirthTextBox.TabIndex = 9;
             // 
             // LastNameTextBox
             // 
@@ -347,6 +339,42 @@
             this.CnpTextBox.Size = new System.Drawing.Size(100, 20);
             this.CnpTextBox.TabIndex = 0;
             // 
+            // birthTimePicker
+            // 
+            this.birthTimePicker.CustomFormat = "yyyy MM dd";
+            this.birthTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.personsDataTableBindingSource, "Birth", true));
+            this.birthTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.birthTimePicker.Location = new System.Drawing.Point(209, 169);
+            this.birthTimePicker.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
+            this.birthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.birthTimePicker.Name = "birthTimePicker";
+            this.birthTimePicker.Size = new System.Drawing.Size(100, 20);
+            this.birthTimePicker.TabIndex = 16;
+            // 
+            // CnpErrorProvider
+            // 
+            this.CnpErrorProvider.ContainerControl = this;
+            // 
+            // FirstNameErrorProvider
+            // 
+            this.FirstNameErrorProvider.ContainerControl = this;
+            // 
+            // LastNameErrorProvider
+            // 
+            this.LastNameErrorProvider.ContainerControl = this;
+            // 
+            // BirthErrorProvider
+            // 
+            this.BirthErrorProvider.ContainerControl = this;
+            // 
+            // AgeErrorProvider
+            // 
+            this.AgeErrorProvider.ContainerControl = this;
+            // 
+            // SexErrorProvider
+            // 
+            this.SexErrorProvider.ContainerControl = this;
+            // 
             // PersonManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -362,6 +390,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.personsDataTableBindingSource)).EndInit();
             this.DetailsTab.ResumeLayout(false);
             this.DetailsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CnpErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FirstNameErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LastNameErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BirthErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AgeErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SexErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,7 +413,6 @@
         private System.Windows.Forms.RadioButton FRadioButton;
         private System.Windows.Forms.RadioButton MRadioButton;
         private System.Windows.Forms.TextBox AgeTextBox;
-        private System.Windows.Forms.TextBox BirthTextBox;
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.TextBox FirstNameTextBox;
         private System.Windows.Forms.Label labelSex;
@@ -391,13 +424,19 @@
         private System.Windows.Forms.TextBox CnpTextBox;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sexDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DateTimePicker birthTimePicker;
+        private System.Windows.Forms.ErrorProvider CnpErrorProvider;
+        private System.Windows.Forms.ErrorProvider FirstNameErrorProvider;
+        private System.Windows.Forms.ErrorProvider LastNameErrorProvider;
+        private System.Windows.Forms.ErrorProvider BirthErrorProvider;
+        private System.Windows.Forms.ErrorProvider AgeErrorProvider;
+        private System.Windows.Forms.ErrorProvider SexErrorProvider;
     }
 }
 

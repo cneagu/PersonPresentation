@@ -1,7 +1,6 @@
 ﻿using PersonPresentation_BL;
-using PersonPresentation_DL.Model;
-using PersonPresentation_DL.Repository;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
@@ -9,7 +8,7 @@ namespace PersonPresentation.UI
 {
     public partial class PersonManager : Form
     {
-        private PersonRepository _persons = new PersonRepository();
+        private PersonPresentationBusiness _persons = new PersonPresentationBusiness();
         private PersonPresentationDataSet _dataSetSource = new PersonPresentationDataSet();
         private bool _isNew = false;
 
@@ -33,7 +32,6 @@ namespace PersonPresentation.UI
             _isNew = false;
             CnpTextBox.Enabled = false;
             TabManager.SelectedIndex = 1;
-            
         }
 
         private void AddPerson_Click(object sender, EventArgs e)
@@ -43,27 +41,27 @@ namespace PersonPresentation.UI
             personsDataTableBindingSource.Position = PersonsGrid.Rows.Count - 2;
             TabManager.SelectedIndex = 1;
             CnpTextBox.Enabled = true;
-
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show("Are you sure?", "Confirm",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Exclamation);
+            if (result == DialogResult.Yes)
+            {
+                var objct = (System.Data.DataRowView)personsDataTableBindingSource.Current;
+                PersonPresentationDataSet.PersonsRow personRow = (PersonPresentationDataSet.PersonsRow)objct.Row;
+                _persons.Delete(personRow.CNP);
 
-            string cnp = CnpTextBox.Text;
-            _persons.Delete(cnp);
+            }
             _dataSetSource.Persons.Populate();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             _dataSetSource.Persons.Populate();
             personsDataTableBindingSource.DataSource = _dataSetSource.Persons;
-        }
-
-        private void CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void CancelTab_Click(object sender, EventArgs e)
@@ -73,30 +71,54 @@ namespace PersonPresentation.UI
 
         private void Save_Click(object sender, EventArgs e)
         {
-            Person _person = new Person();
-            _person.CNP = CnpTextBox.Text;
-            _person.FirstName = FirstNameTextBox.Text;
-            _person.LastName = LastNameTextBox.Text;
-            _person.Birth = DateTime.Parse(BirthTextBox.Text);
-            _person.Age = Int32.Parse(AgeTextBox.Text);
-            _person.Sex = MRadioButton.Checked;
-            if(_isNew)
-                _persons.Insert(_person);
+            if (CnpTextBox.Text == "" || !Regex.IsMatch(CnpTextBox.Text, @"^[0-9]"))
+            {
+                CnpErrorProvider.SetError(CnpTextBox, "Cnp Invalid!");
+            }
+            else if(FirstNameTextBox.Text == "" || !Regex.IsMatch(FirstNameTextBox.Text, "^[a-zA-Z]+$"))
+            {
+                FirstNameErrorProvider.SetError(FirstNameTextBox, "FirstName Invalid!");
+            }
+            else if (LastNameTextBox.Text == "" || !Regex.IsMatch(LastNameTextBox.Text, "^[a-zA-Z]+$"))
+            {
+                LastNameErrorProvider.SetError(LastNameTextBox, "LastName Invalid!");
+            } 
+            else if (AgeTextBox.Text == "" || !Regex.IsMatch(AgeTextBox.Text, @"^[0-9]")) //To compare Value of nowDateTime - selected DateTime with age
+            {
+                AgeErrorProvider.SetError(AgeTextBox, "Age Invalid!");
+            }
             else
-                _persons.UpdateById(_person);
-            _dataSetSource.Persons.Populate();
-            TabManager.SelectedIndex = 0;
+            {
+                CnpErrorProvider.SetError(CnpTextBox, "");
+                FirstNameErrorProvider.SetError(FirstNameTextBox, "");
+                LastNameErrorProvider.SetError(LastNameTextBox, "");
+                AgeErrorProvider.SetError(AgeTextBox, "");
+
+                PersonS _person = new PersonS();
+                _person.CNP = CnpTextBox.Text;
+                _person.FirstName = FirstNameTextBox.Text;
+                _person.LastName = LastNameTextBox.Text;
+                _person.Birth = DateTime.Parse(birthTimePicker.Text);
+                _person.Age = Int32.Parse(AgeTextBox.Text);
+                _person.Sex = MRadioButton.Checked;
+                if (_isNew)
+                    _persons.Insert(_person);
+                else
+                    _persons.UpdateById(_person);
+                _dataSetSource.Persons.Populate();
+                TabManager.SelectedIndex = 0;
+            }
         }
 
 
         private void NewPersonSave(object sender, EventArgs e)
         {
-            Person _person = new Person();
+            PersonS _person = new PersonS();
 
             _person.CNP = CnpTextBox.Text;
             _person.FirstName = FirstNameTextBox.Text;
             _person.LastName = LastNameTextBox.Text;
-            _person.Birth = DateTime.Parse(BirthTextBox.Text);
+            _person.Birth = DateTime.Parse(birthTimePicker.Text);
             _person.Age = Int32.Parse(AgeTextBox.Text);
             _person.Sex = MRadioButton.Checked;
             _persons.Insert(_person);
@@ -104,7 +126,5 @@ namespace PersonPresentation.UI
             _dataSetSource.Persons.Populate();
             TabManager.SelectedIndex = 0;
         }
-
     }
-
 }

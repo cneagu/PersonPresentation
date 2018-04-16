@@ -5,18 +5,6 @@ using System.Data;
 
 namespace PersonPresentation_BL
 {
-}
-
-namespace PersonPresentation_BL
-{
-}
-
-namespace PersonPresentation_BL
-{
-}
-
-namespace PersonPresentation_BL
-{
 
 
     public partial class PersonPresentationDataSet
