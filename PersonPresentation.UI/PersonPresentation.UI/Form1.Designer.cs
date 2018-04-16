@@ -33,12 +33,8 @@
             this.OverViewTab = new System.Windows.Forms.TabPage();
             this.PersonsGrid = new System.Windows.Forms.DataGridView();
             this.DeleteButton = new System.Windows.Forms.Button();
-            this.EditButton = new System.Windows.Forms.Button();
-            this.AddPersonButton = new System.Windows.Forms.Button();
             this.DetailsTab = new System.Windows.Forms.TabPage();
             this.birthTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.CancelButton = new System.Windows.Forms.Button();
-            this.SaveButton = new System.Windows.Forms.Button();
             this.FRadioButton = new System.Windows.Forms.RadioButton();
             this.MRadioButton = new System.Windows.Forms.RadioButton();
             this.AgeTextBox = new System.Windows.Forms.TextBox();
@@ -64,6 +60,10 @@
             this.birthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personsDataTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EditButton = new System.Windows.Forms.Button();
+            this.AddPersonButton = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.TabManager.SuspendLayout();
             this.OverViewTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PersonsGrid)).BeginInit();
@@ -127,7 +127,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteButton.Location = new System.Drawing.Point(544, 371);
+            this.DeleteButton.Location = new System.Drawing.Point(516, 371);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
             this.DeleteButton.TabIndex = 1;
@@ -135,31 +135,9 @@
             this.DeleteButton.UseVisualStyleBackColor = true;
             this.DeleteButton.Click += new System.EventHandler(this.Delete_Click);
             // 
-            // EditButton
-            // 
-            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.EditButton.Location = new System.Drawing.Point(625, 371);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(75, 23);
-            this.EditButton.TabIndex = 1;
-            this.EditButton.Text = "Edit";
-            this.EditButton.UseVisualStyleBackColor = true;
-            // 
-            // AddPersonButton
-            // 
-            this.AddPersonButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddPersonButton.Location = new System.Drawing.Point(706, 371);
-            this.AddPersonButton.Name = "AddPersonButton";
-            this.AddPersonButton.Size = new System.Drawing.Size(75, 23);
-            this.AddPersonButton.TabIndex = 1;
-            this.AddPersonButton.Text = "Add Person";
-            this.AddPersonButton.UseVisualStyleBackColor = true;
-            // 
             // DetailsTab
             // 
             this.DetailsTab.Controls.Add(this.birthTimePicker);
-            this.DetailsTab.Controls.Add(this.CancelButton);
-            this.DetailsTab.Controls.Add(this.SaveButton);
             this.DetailsTab.Controls.Add(this.FRadioButton);
             this.DetailsTab.Controls.Add(this.MRadioButton);
             this.DetailsTab.Controls.Add(this.AgeTextBox);
@@ -172,6 +150,8 @@
             this.DetailsTab.Controls.Add(this.labelFirstName);
             this.DetailsTab.Controls.Add(this.labelCNP);
             this.DetailsTab.Controls.Add(this.CnpTextBox);
+            this.DetailsTab.Controls.Add(this.CancelButton);
+            this.DetailsTab.Controls.Add(this.SaveButton);
             this.DetailsTab.Location = new System.Drawing.Point(4, 22);
             this.DetailsTab.Name = "DetailsTab";
             this.DetailsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -191,24 +171,6 @@
             this.birthTimePicker.Name = "birthTimePicker";
             this.birthTimePicker.Size = new System.Drawing.Size(100, 20);
             this.birthTimePicker.TabIndex = 16;
-            // 
-            // CancelButton
-            // 
-            this.CancelButton.Location = new System.Drawing.Point(278, 331);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 13;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            // 
-            // SaveButton
-            // 
-            this.SaveButton.Location = new System.Drawing.Point(157, 331);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveButton.TabIndex = 13;
-            this.SaveButton.Text = "Save";
-            this.SaveButton.UseVisualStyleBackColor = true;
             // 
             // FRadioButton
             // 
@@ -382,6 +344,52 @@
             // 
             this.personsDataTableBindingSource.DataMember = "Persons";
             this.personsDataTableBindingSource.DataSource = typeof(PersonPresentation_BL.PersonPresentationDataSet);
+            // 
+            // EditButton
+            // 
+            this.EditButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.EditButton.Image = global::PersonPresentation.UI.Properties.Resources.DocumentHS;
+            this.EditButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.EditButton.Location = new System.Drawing.Point(597, 371);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(75, 23);
+            this.EditButton.TabIndex = 1;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = true;
+            // 
+            // AddPersonButton
+            // 
+            this.AddPersonButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddPersonButton.Image = global::PersonPresentation.UI.Properties.Resources._112_Plus_Blue_16x16_72;
+            this.AddPersonButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.AddPersonButton.Location = new System.Drawing.Point(678, 371);
+            this.AddPersonButton.Name = "AddPersonButton";
+            this.AddPersonButton.Size = new System.Drawing.Size(103, 23);
+            this.AddPersonButton.TabIndex = 1;
+            this.AddPersonButton.Text = "Add Person";
+            this.AddPersonButton.UseVisualStyleBackColor = true;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Image = global::PersonPresentation.UI.Properties.Resources.Edit_UndoHS;
+            this.CancelButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.CancelButton.Location = new System.Drawing.Point(278, 331);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 13;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Image = global::PersonPresentation.UI.Properties.Resources.saveHS;
+            this.SaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SaveButton.Location = new System.Drawing.Point(157, 331);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 13;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
             // 
             // PersonManager
             // 

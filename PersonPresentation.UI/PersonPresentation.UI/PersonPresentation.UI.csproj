@@ -64,6 +64,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\PersonPresentation_BL.PersonPresentationDataSet+PersonsDataTable.datasource" />
     <None Include="Properties\DataSources\PersonPresentation_BL.PersonPresentationDataSet+PersonsRow.datasource" />
@@ -96,6 +97,18 @@
       <Project>{5230033A-A00F-4C1D-A5AF-37B2836BE9D0}</Project>
       <Name>PersonPresentation_DL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_UndoHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DocumentHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Blue_16x16_72.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
